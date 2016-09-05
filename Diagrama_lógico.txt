@@ -1,19 +1,28 @@
-Legenda:
-    - Formato de entidade: Entidade (atributos)
-    - Identificador único: negrito e sublinhado
-    - Referência: sublinhado e identificado posteriormente
 
+Legenda:
+	- Formato de entidade: Entidade (atributos)
+	- Identificador único: negrito e sublinhado
+	- Referência: sublinhado e identificado posteriormente
 
 Aluno (documento, nome, idade, telefone, email)
 
+PedidoDeMatrícula(sessão,CHmin,CHmáx, tipo,matricula,disciplina)
+matricula referencia Matricula(numero)
+disciplina referencia disciplina(código)
 
-Curso(número, nome)
+ -- necessário dado que podem haver N professores para uma disciplina e N disciplinas para um professor.
+ProfessoresDaDisciplina(professor,disciplina)
+professor referencia Professor(documento)
+disciplina referencia Disciplina(código)
 
+Professor(documento, nome)
+
+Curso(número, nome,campus)
+campus  referencia Campus(nome)
 
 Matrícula(número, aluno, curso)
 aluno referencia Aluno(documento)
 curso referencia Curso(número)
-
 
 DisciplinasCursadas( matrícula, disciplina)
 matrícula referencia Matrícula(número)
@@ -23,32 +32,18 @@ Horário(hora, dia da semana, Semana A/B,disciplina,semestre)
 disciplina referencia disciplina(código)
 semestre referencia semestre(codigo)
 
-
-Pré-requisito(Obrigatório, Eixo, Carga horária mínima/máxima, disciplinascursadas)
-# disciplinacursadas referencia DisciplinasCursadas(código)
-
-
-
-
-
-PedidoDeMatrícula(sessão,CHmin,CHmáx, tipo,matricula,disciplina)
-# matricula referencia Matricula(numero)
-# disciplina referencia disciplina(código)
-
+Pré-requisito(código,obrigatório, eixo, carga horária mínima/máxima, disciplina)
+disciplina referencia Disciplina(código)
 
 Disciplina(código, nome, CH)
-# cursoCodigo referencia curso(código)
+curso referencia curso(código)
 
 
-
-Professor(documento, nome)
-
-
-Currículo(implantação,disciplinascursadas)
-# disciplinacursadas referencia DisciplinasCursadas(código)
+Currículo(implantação,disciplina)
+disciplina referencia Disciplina(código)
 
 
 Campus(nome)
 
-
 Semestre(ano, semestre)
+
