@@ -1315,6 +1315,9 @@ insert into DisciplinasCursadas(matricula, disciplina)
     	);               
 select * from DisciplinasCursadas;
 
+--Exemplo de como mudar campos de uma das tabelas
+--UPDATE `bcd`.`aluno` SET `telefone`='85645763' WHERE `id`='5';
+--UPDATE `bcd`.`aluno` SET `telefone`='82435463' WHERE `id`='7';
 
 
 select * from disciplina;
