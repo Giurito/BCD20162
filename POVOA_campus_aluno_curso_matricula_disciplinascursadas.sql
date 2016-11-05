@@ -34,7 +34,7 @@ insert into aluno(nome, documento, telefone, email)
        	(
     	'Mathias Silva da Rosa',
     	'5678901234',
-    	'8564576',
+    	'85645763',
     	'mrosa@ifsc.edu.br'
     	), 
         (
